@@ -1,0 +1,2 @@
+-- Write your query below
+select d.name as department , c.name as employee, c.salary from  (select a.department_id  , a.name , a.salary from employee a inner join (select department_id ,  max(salary) as salary from employee group by department_id) b on a.department_id = b.department_id and a.salary = b.salary) c inner join department d on c.department_id = d.id

@@ -1,0 +1,2 @@
+-- Write your query below
+select a.name,case when b.travelled_distance is Null then 0 else b.travelled_distance end  from  users a left join  (select user_id , sum(distance) as travelled_distance from rides group by user_id ) b on a.id = b.user_id order by travelled_distance desc , a.name

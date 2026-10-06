@@ -1,0 +1,1 @@
+SELECT COALESCE(a.employee_id, b.employee_id) AS employee_id FROM employees a FULL OUTER JOIN salaries b ON a.employee_id = b.employee_id WHERE a.employee_id IS NULL OR b.employee_id IS NULL ORDER BY employee_id
