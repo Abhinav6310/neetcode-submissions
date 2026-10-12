@@ -1,0 +1,2 @@
+-- Write your query below
+select c.customer_id , c.customer_name from (select a.* , b.customer_name from orders a  join customers b on a.customer_id = b.customer_id) c group by customer_id,customer_name having  sum(case when c.product_name = 'A' then 1 else 0 end)>0 and sum(case when c.product_name = 'B' then 1 else 0 end)>0 and sum(case when c.product_name = 'C' then 1 else 0 end )=0 order by customer_name
